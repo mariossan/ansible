@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  controller:
+    container_name: server_controller
+    image: server_controller
+    build: 
+      context: controller
+    command: bash -c "tail -f /dev/null"
+    networks:
+      - net
+  
+  target1:
+    container_name: target1
+    image: target1
+    build: 
+      context: targets
+    # command: bash -c "tail -f /dev/null"
+    networks:
+      - net
+
+networks:
+  net:
